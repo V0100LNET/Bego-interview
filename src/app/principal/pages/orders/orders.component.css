@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 15px;
+    margin-bottom: 30px;
+}
+
+.title {
+    color: var(--color-text-title);
+}
+
+.icon-back {
+    cursor: pointer;
+}
+
+.icon-notification {
+    width: 20px;
+    cursor: pointer;
+}

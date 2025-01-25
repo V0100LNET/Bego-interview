@@ -1,1 +1,25 @@
-<p>orders works!</p>
+<section class="container">
+    <div class="header">
+        <img class="icon-back" title="Regresar" src="assets/icons/arrow_back.png" alt="image return">
+        <h4 class="title">Cargo Orders</h4>
+        <img title="Notificaciones" class="icon-notification" src="assets/icons/notification.svg" alt="image notification">
+    </div>
+
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="selectTab($event)">
+        <mat-tab label="Upcoming">
+            <app-input-search (eventInputSearch)="eventKeyUp($event)"></app-input-search>
+            <app-card-orders [orderData]="order" *ngFor="let order of getOrdersUpcoming"></app-card-orders>
+            <p class="message-no-orders" *ngIf="getOrdersUpcoming.length == 0">No orders to display</p>
+        </mat-tab>
+        <mat-tab label="Completed">
+            <app-input-search (eventInputSearch)="eventKeyUp($event)"></app-input-search>
+            <app-card-orders [orderData]="order" *ngFor="let order of getOrdersComplete"></app-card-orders>
+            <p class="message-no-orders" *ngIf="getOrdersComplete.length == 0">No orders to display</p>
+        </mat-tab>
+        <mat-tab label="Past">
+            <app-input-search (eventInputSearch)="eventKeyUp($event)"></app-input-search>
+            <app-card-orders [orderData]="order" *ngFor="let order of getOrdersPast"></app-card-orders>
+            <p class="message-no-orders" *ngIf="getOrdersPast.length == 0">No orders to display</p>
+        </mat-tab>
+    </mat-tab-group>
+</section>

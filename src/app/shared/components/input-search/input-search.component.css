@@ -1,0 +1,12 @@
+.label {
+    color: var(--color-text-gray);
+}
+
+.icon-search {
+    color: var(--color-text-gray);
+}
+
+.content-search {
+    width: 100%;
+    margin-top: 30px;
+}

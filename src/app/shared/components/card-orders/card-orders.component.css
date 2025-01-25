@@ -1,0 +1,164 @@
+.content-card{
+    margin-top: 20px;
+    overflow-y: hidden;
+}
+
+.label {
+    color: white;
+    margin-bottom: 20px;;
+}
+
+.divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.label .order {
+    color: #949494;
+}
+
+.card-orders {
+    position: relative;
+    color: white;
+    background-color: var(--color-bg-card);
+    font-size: 1.1rem;
+    border-radius: 20px;
+    border: 1px solid #504f4f;
+}
+
+.card-orders .icon-transport {
+    width: 35px;
+}
+
+.card-orders .icon-ubication {
+    width: 23px;
+}
+
+.card-orders .mat-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-orders .mat-card-header .mat-header__title {
+    display: flex;
+}
+
+.card-orders .mat-card-header .mat-header__title p {
+    margin-left: 10px;
+}
+
+.card-orders .mat-card-header .mat-header__status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.card-orders .mat-card-header .mat-header__status .circle {
+    margin-right: 10px;
+}
+
+.card-orders .mat-card-content .info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-orders .mat-card-content .info .info-title-pickup {
+    margin-left: 56px;
+    font-size: 0.8rem;
+    color: var(--color-text-gray);
+}
+
+.card-orders .mat-card-content .info .info-title-dropoff {
+    margin-left: 41px;
+    font-size: 0.8rem;
+    color: var(--color-text-gray);
+}
+
+.mat-card-content .info .info-pickup .ubication,
+.mat-card-content .info .info-dropoff .ubication {
+    margin-left: 20px;
+}
+
+.mat-card-content .info .info-pickup .ubication p,
+.mat-card-content .info .info-dropoff .ubication p {
+    color: var(--color-text-gray);
+    opacity: 0.9;
+}
+
+.mat-card-content .info .info-pickup .info-time,
+.mat-card-content .info .info-dropoff .info-time {
+    margin-left: 20px;
+    text-align: right;
+}
+
+.mat-card-content .info .info-pickup .info-time .date,
+.mat-card-content .info .info-dropoff .info-time .date {
+    color: var(--color-text-gray);
+    opacity: 0.9;
+}
+
+.card-orders .mat-card-content .info .info-pickup,
+.card-orders .mat-card-content .info .info-dropoff {
+    display: flex;
+    align-items: self-start;
+}
+
+.card-orders .button-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.card-orders .button-actions .btn-resume {
+    color: var(--color-background);
+    font-weight: bold;
+    background-color: var(--color-text-yellow);
+    margin-right: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.card-orders .button-actions .btn-time-pickup {
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-right: 20px;
+    border: 1px solid #504f4f;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .card-orders .button-actions {
+        justify-content: center;
+    }
+
+    .card-orders .mat-card-content .info {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .card-orders {
+        font-size: 0.9rem;
+    }
+
+    .card-orders .button-actions {
+        justify-content: space-between;
+    }
+
+    .card-orders .button-actions .btn-resume {
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    .card-orders .button-actions .btn-time-pickup {
+        margin-bottom: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 20px;
+    }
+}
