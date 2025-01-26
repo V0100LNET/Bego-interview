@@ -58,12 +58,12 @@
 }
 
 .btn-track-order-bg-disabled {
-    color: white;
+    color: white !important;
     background-color: var(--color-bg-card);
 }
 
 .btn-track-order-bg-active {
-    color: black;
+    color: black !important;
     background-color: var(--color-text-yellow);
 }
 

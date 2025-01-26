@@ -19,6 +19,11 @@
     cursor: pointer;
 }
 
+.btn-back {
+    background-color: none;
+    cursor: pointer;
+}
+
 .icon-notification {
     width: 20px;
     cursor: pointer;
