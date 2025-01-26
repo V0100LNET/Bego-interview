@@ -244,11 +244,17 @@
         border-top-right-radius: 20px;
     }
 
-    .card-orders .mat-card-content .info .info__card {
+    /* .card-orders .mat-card-content .info .info__card {
         width: 100%;
-    }
+    } */
 
     .card-orders .mat-card-content .info .info-dropoff {
         padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .card-orders .mat-card-content .info .info__card {
+        width: 100%;
     }
 }

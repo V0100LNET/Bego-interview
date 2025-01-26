@@ -52,6 +52,10 @@
     right: 30px;
 }
 
+.image-disabled {
+    margin-top: 5px;
+}
+
 .disabled-line-step {
     opacity: 0.5;
     background-color: var(--color-text-gray);

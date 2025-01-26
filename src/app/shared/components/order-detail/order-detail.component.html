@@ -15,7 +15,7 @@
                             <img src="assets/icons/icon_check.svg" alt="status check">
                         </div>
                             <div *ngIf="!item.active">
-                                <img src="assets/icons/icon_disabled_status.svg" alt="status disabled">
+                                <img class="image-disabled" src="assets/icons/icon_disabled_status.svg" alt="status disabled">
                             </div>
                             <p [ngClass]="getOpacityText(item.active)">{{ getTextEnglish(item.status) }}</p>
                         </div>

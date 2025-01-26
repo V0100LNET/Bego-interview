@@ -166,7 +166,7 @@ body {
         margin-bottom: 10px;
         bottom: 0;
         top: 0;
-        transform: translateX(-160px);
+        transform: translateX(-154px);
     }
 }
 
@@ -175,9 +175,9 @@ body {
         padding: 10px 10px;
     }
     
-    .line {
+    /* .line {
         transform: translateX(-150px);
-    }
+    } */
     
     .btn-default {
         padding: 25px 15px !important;
@@ -193,6 +193,6 @@ body {
 
 @media screen and (max-width: 320px) {
     .line {
-        transform: translateX(-125px);
+        transform: translateX(-115px);
     }
 }
