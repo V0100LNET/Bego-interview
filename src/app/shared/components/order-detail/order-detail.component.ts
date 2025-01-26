@@ -127,4 +127,8 @@ export class OrderDetailComponent implements OnInit {
     
     return "";
   }
+
+  trackOrder(): void {
+    console.log('Track Order');
+  }
 }

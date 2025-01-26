@@ -28,7 +28,8 @@
                 color="accent" 
                 class="btn-default btn-track-order"
                 [ngClass]="disabledTrackingBtn ? 'disabled btn-track-order-bg-disabled' : 'btn-track-order-bg-active'"
-                [disabled]="disabledTrackingBtn">
+                [disabled]="disabledTrackingBtn"
+                (click)="trackOrder()">
                 Track Order
             </button>
         </section>
