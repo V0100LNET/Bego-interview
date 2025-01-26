@@ -28,7 +28,7 @@ export interface Destination {
     show_navigation: boolean;
 }
 
-export interface AllOrders {
+export interface OrderDetail {
     status: number;
     result: ResultAllOrder;
 }
@@ -268,4 +268,9 @@ export interface TruckAttributes {
     truck_settings_text: string;
     insurer:             string;
     policy_number:       string;
+}
+
+export interface ActiveDataPage {
+    page: string
+    pickupDropoff: "pickup" | "dropoff"
 }

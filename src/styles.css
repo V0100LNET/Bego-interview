@@ -25,6 +25,10 @@ body {
     background-color: var(--color-background);
 }
 
+[hidden] {
+    display: none !important;
+}
+
 .container {
     max-width: 1200px;
     width: 100%;
@@ -53,11 +57,20 @@ body {
     border: 1px solid var(--color-status-assigned);
 }
 
+.status-accepted {
+    background-color: var(--color-status-active);
+    border: 1px solid var(--color-status-active);
+}
+
 .line {
     position: relative;
-    width: 300px;
+    width: 270px;
     height: 1px;
     background-color: var(--color-text-gray);
+}
+
+.disabled {
+    opacity: 0.4;
 }
 
 .divider {
@@ -131,6 +144,20 @@ body {
     overflow: hidden !important;
 }
 
+/*color bg steps*/
+.mat-stepper-horizontal, .mat-stepper-vertical {
+    background-color: var(--color-bg-card) !important;
+}
+
+/*color icon expansion panel*/
+.expansion-panel .mat-expansion-panel-header-description, .mat-expansion-indicator::after {
+    color: var(--color-text-yellow) !important;
+}
+
+.mat-expansion-panel-header.mat-expanded:focus, .mat-expansion-panel-header.mat-expanded:hover {
+    background: var(--color-bg-card) !important;
+}
+
 @media screen and (max-width: 768px) {
     .line {
         width: 1px;
@@ -139,7 +166,7 @@ body {
         margin-bottom: 10px;
         bottom: 0;
         top: 0;
-        transform: translateX(-200px);
+        transform: translateX(-160px);
     }
 }
 

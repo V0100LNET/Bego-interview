@@ -10,6 +10,11 @@
     color: var(--color-text-title);
 }
 
+.btn-back {
+    background-color: transparent;
+    border: none;
+}
+
 .icon-back {
     cursor: pointer;
 }

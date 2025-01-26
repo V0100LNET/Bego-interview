@@ -17,6 +17,75 @@
     color: #949494;
 }
 
+.new-status {
+    max-width: 110px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #1b2224;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+}
+
+.content-trailer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 43px;
+    height: 44px;
+    background-color: var(--color-text-yellow);
+    border-radius: 100px;
+    padding: 10px 10px;
+}
+
+.content-trailer::after {
+    content: "";
+    width: 37px;
+    height: 37px;
+    background-color: var(--color-text-yellow);
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-7px);
+}
+
+.content-trailer img {
+    margin-right: 3px;
+    z-index: 9999;
+    margin-top: -10px;
+}
+
+.content-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 43px;
+    height: 43px;
+    background-color: #1a2022;
+    border-radius: 50%;
+}
+
+.content-circle::after {
+    content: "";
+    width: 37px;
+    height: 37px;
+    background-color: #1a2022;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid #4e4e4e;
+}
+
+.new-status p {
+    margin-left: 5px;
+}
+
 .card-orders {
     position: relative;
     color: white;
@@ -24,14 +93,18 @@
     font-size: 1.1rem;
     border-radius: 20px;
     border: 1px solid #504f4f;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .card-orders .icon-transport {
     width: 35px;
+    height: 42px;
 }
 
 .card-orders .icon-ubication {
-    width: 23px;
+    width: 35px;
+    height: 42px;
 }
 
 .card-orders .mat-card-header {
@@ -66,20 +139,28 @@
     justify-content: space-between;
 }
 
+.card-orders .mat-card-content .info .info__card {
+    width: 350px;
+    cursor: pointer;
+}
+
 .card-orders .mat-card-content .info .info-title-pickup {
     margin-left: 56px;
+    /* transform: translateX(52px); */
     font-size: 0.8rem;
     color: var(--color-text-gray);
+
 }
 
 .card-orders .mat-card-content .info .info-title-dropoff {
-    margin-left: 41px;
+    margin-left: 56px;
+    /* transform: translateX(37px); */
     font-size: 0.8rem;
     color: var(--color-text-gray);
 }
 
-.mat-card-content .info .info-pickup .ubication,
-.mat-card-content .info .info-dropoff .ubication {
+.mat-card-content .info .info-pickup .ubication > *,
+.mat-card-content .info .info-dropoff .ubication > * {
     margin-left: 20px;
 }
 
@@ -87,6 +168,7 @@
 .mat-card-content .info .info-dropoff .ubication p {
     color: var(--color-text-gray);
     opacity: 0.9;
+    font-size: 0.9rem;
 }
 
 .mat-card-content .info .info-pickup .info-time,
@@ -145,6 +227,8 @@
 @media screen and (max-width: 500px) {
     .card-orders {
         font-size: 0.9rem;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .card-orders .button-actions {
@@ -160,5 +244,13 @@
         margin-bottom: 0;
         border-top-left-radius: 0;
         border-top-right-radius: 20px;
+    }
+
+    .card-orders .mat-card-content .info .info__card {
+        width: 100%;
+    }
+
+    .card-orders .mat-card-content .info .info-dropoff {
+        padding-bottom: 20px;
     }
 }

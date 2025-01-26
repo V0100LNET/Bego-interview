@@ -5,6 +5,7 @@ import { MaterialModule } from '../material/material.module';
 import { CardOrdersComponent } from './components/card-orders/card-orders.component';
 import { SplitTextPipe } from './pipes/split-text.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 
 
 
@@ -12,7 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     InputSearchComponent,
     CardOrdersComponent,
-    SplitTextPipe
+    SplitTextPipe,
+    OrderDetailComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     InputSearchComponent,
     CardOrdersComponent,
-    SplitTextPipe
+    SplitTextPipe,
+    OrderDetailComponent
   ]
 })
 export class SharedModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
-import { UpcomingOrders, Result, AllOrders } from 'src/app/shared/interfaces/principal/orders.interface';
+import { UpcomingOrders, Result, OrderDetail } from 'src/app/shared/interfaces/principal/orders.interface';
 import { GeneralService } from 'src/app/shared/services/general.service';
 import { OrderService } from 'src/app/shared/services/principal/order.service';
 
@@ -13,7 +13,7 @@ export class OrdersComponent implements OnInit {
   incommingOrdersSummary: Result[] = [];
   filteredData: Result[] = [];
   noData: boolean = false;
-  indexTab: number = 1;
+  indexTab: number = 0;
 
   constructor(
     private orderService: OrderService,
@@ -22,7 +22,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getIncomingOrders();
-    this.getAllOrders();
+    // this.getDataOrderDetail();
   }
 
   get getOrdersUpcoming(): Result[] {    
@@ -41,6 +41,18 @@ export class OrdersComponent implements OnInit {
     return this.filteredData.length == 0 ? true : false;
   }
 
+  get isActive(): boolean {
+    return this.generalService.statusActive;
+  }
+
+  get getLabel(): string {
+    if(this.generalService.statusActive) {
+      return "Details";
+    }
+
+    return "Orders";
+  }
+
   getIncomingOrders(): void {
     this.orderService.getUpcomingOrders().subscribe((response: UpcomingOrders) => {
       switch(response.status) {
@@ -57,19 +69,9 @@ export class OrdersComponent implements OnInit {
     })
   }
 
-  getAllOrders(): void {
-    this.orderService.getAllOrders().subscribe((respose: AllOrders) => {
-      switch(respose.status){
-        case 200:
-        break;
-
-      }
-    })
-  }
-
   selectTab(event: MatTabChangeEvent) {    
     this.filteredData = this.incommingOrdersSummary;          
-    this.indexTab = event.index + 1;
+    this.indexTab = event.index;
     this.generalService.emitEvent();
   }
 
@@ -80,5 +82,13 @@ export class OrdersComponent implements OnInit {
     };
     
     this.filteredData = this.incommingOrdersSummary.filter(data => data.order_number.includes(text.toUpperCase()));    
+  }
+
+  back(): void {
+    if(this.generalService.statusActive) {
+      this.generalService.setStatusActive(false);
+    }
+
+    this.filteredData = this.incommingOrdersSummary;          
   }
 }

@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { UpcomingOrders, Result, AllOrders } from '../../interfaces/principal/orders.interface';
+import { UpcomingOrders, Result, OrderDetail } from '../../interfaces/principal/orders.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
   private urlUpcomingOrders: string = "https://129bc152-6319-4e38-b755-534a4ee46195.mock.pstmn.io/orders/upcoming";
-  private urlAllOrders: string = "https://129bc152-6319-4e38-b755-534a4ee46195.mock.pstmn.io/orders";
+  private urlOrderDetail: string = "https://129bc152-6319-4e38-b755-534a4ee46195.mock.pstmn.io/orders";
 
   constructor(
     private httpClient: HttpClient
@@ -28,7 +28,7 @@ export class OrderService {
     );
   }
 
-  getAllOrders(): Observable<AllOrders> {
-    return this.httpClient.get<AllOrders>(this.urlAllOrders);
+  getDataOrderDetail(): Observable<OrderDetail> {
+    return this.httpClient.get<OrderDetail>(this.urlOrderDetail);
   }
 }

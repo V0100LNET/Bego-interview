@@ -1,6 +1,7 @@
 import { AfterViewChecked, Component, Input, OnInit } from '@angular/core';
-import { Result } from '../../interfaces/principal/orders.interface';
+import { ActiveDataPage, Result, ResultAllOrder } from '../../interfaces/principal/orders.interface';
 import { interval, map, takeWhile } from 'rxjs';
+import { GeneralService } from '../../services/general.service';
 
 @Component({
   selector: 'app-card-orders',
@@ -15,12 +16,20 @@ export class CardOrdersComponent implements OnInit {
   remainingTime: string = "";
   enableNavigation: boolean = false;
 
+  constructor(
+    private generalService: GeneralService
+  ){}
+
   ngOnInit(): void {
     this.initIntervalDate();
   }
 
   get intervalTime(): string {
     return this.remainingTime;
+  }
+
+  get getStatusActive(): boolean {    
+    return this.generalService.statusActive;
   }
 
   getText(status: number): string {
@@ -53,6 +62,11 @@ export class CardOrdersComponent implements OnInit {
     return new Date(date)
   }
 
+  showDataOrderDetail(data: Result): void {
+    this.generalService.setDataOrder(data);
+    this.generalService.setStatusActive(true);
+  }
+
   initIntervalDate(): void {    
     // this.startDate = new Date(this.orderData.start_date);
     this.startDate = new Date("2025-01-26");
@@ -74,6 +88,10 @@ export class CardOrdersComponent implements OnInit {
         }
       })
     }
+    else {
+      this.enableNavigation = true;
+      this.remainingTime = "Navegar";
+    }
   }
 
   calculateRemainingTime(): string {
@@ -84,8 +102,22 @@ export class CardOrdersComponent implements OnInit {
 
     return `${hours}h:${minutes}m:${seconds}s`;
   }
-
+  
+  navigate(): void {
+    console.log('Navegar');
+  }
+  
   showButtonByStatus(status: number): boolean {
     return (status == 2) ? true : false;
+  }
+
+  showInfoPickup(): void {
+    let active: ActiveDataPage = { page: "detail", pickupDropoff: "pickup" };
+    this.generalService.setActivateDataPage(active);
+  }
+
+  showInfoDropoff(): void {
+    let active: ActiveDataPage = { page: "detail", pickupDropoff: "dropoff" };
+    this.generalService.setActivateDataPage(active);
   }
 }
