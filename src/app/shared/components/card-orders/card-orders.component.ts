@@ -1,7 +1,7 @@
-import { AfterViewChecked, Component, Input, OnInit } from '@angular/core';
-import { ActiveDataPage, Result, ResultAllOrder } from '../../interfaces/principal/orders.interface';
-import { interval, map, takeWhile } from 'rxjs';
+import { ActiveDataPage, Result } from '../../interfaces/principal/orders.interface';
 import { GeneralService } from '../../services/general.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { interval, map, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-card-orders',
@@ -68,8 +68,7 @@ export class CardOrdersComponent implements OnInit {
   }
 
   initIntervalDate(): void {    
-    // this.startDate = new Date(this.orderData.start_date);
-    this.startDate = new Date("2025-01-26");
+    this.startDate = new Date(this.orderData.start_date);
 
     if (this.startDate > new Date()){
       interval(1000).pipe(
@@ -112,12 +111,16 @@ export class CardOrdersComponent implements OnInit {
   }
 
   showInfoPickup(): void {
-    let active: ActiveDataPage = { page: "detail", pickupDropoff: "pickup" };
-    this.generalService.setActivateDataPage(active);
+    if(this.getStatusActive) {
+      let active: ActiveDataPage = { page: "detail", pickupDropoff: "pickup" };
+      this.generalService.setActivateDataPage(active);
+    }
   }
 
   showInfoDropoff(): void {
-    let active: ActiveDataPage = { page: "detail", pickupDropoff: "dropoff" };
-    this.generalService.setActivateDataPage(active);
+    if(this.getStatusActive) {
+      let active: ActiveDataPage = { page: "detail", pickupDropoff: "dropoff" };
+      this.generalService.setActivateDataPage(active);
+    }
   }
 }

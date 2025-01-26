@@ -1,7 +1,7 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { GeneralService } from '../../services/general.service';
-import { ActiveDataPage, Dropoff, OrderDetail, Result, ResultAllOrder } from '../../interfaces/principal/orders.interface';
+import { ActiveDataPage, DestinationAll, Dropoff, OrderDetail, Result, ResultAllOrder } from '../../interfaces/principal/orders.interface';
 import { OrderService } from '../../services/principal/order.service';
+import { GeneralService } from '../../services/general.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-order-detail',
@@ -10,8 +10,11 @@ import { OrderService } from '../../services/principal/order.service';
 })
 export class OrderDetailComponent implements OnInit {
   date: Date = new Date();
+  titleExpansionPanel: string = "Pickup Data";
+  expandedPanel: boolean = false;
   listStatusItem: Dropoff[] = [];
   listOrderDetail!: OrderDetail;
+  destinations!: DestinationAll;
 
   constructor(
     private generalService: GeneralService,
@@ -22,6 +25,7 @@ export class OrderDetailComponent implements OnInit {
     this.getDataOrderDetail();
     this.generalService.activeDataPage.subscribe(response => {
       this.initDataDetail(response);
+      this.initExpansionPanel(response);
     })
   }
 
@@ -50,7 +54,8 @@ export class OrderDetailComponent implements OnInit {
       switch(respose.status){
         case 200:
           this.listOrderDetail = respose;
-          this.listStatusItem = respose.result.status_list.pickup;          
+          this.listStatusItem = respose.result.status_list.pickup;
+          this.destinations = this.listOrderDetail.result.destinations[0];
         break;
       }      
     })
@@ -83,18 +88,32 @@ export class OrderDetailComponent implements OnInit {
     }
   }
 
+  getDate(date: number): Date {
+    return new Date(date);
+  }
+
   initDataDetail(data: ActiveDataPage): void {
     if(data.pickupDropoff == "pickup") {
       this.listStatusItem = this.listOrderDetail.result.status_list.pickup;
-      console.log(this.listStatusItem);
-      
     }
 
     if(data.pickupDropoff == "dropoff") {
       this.listStatusItem = this.listOrderDetail.result.status_list.dropoff;
-      console.log(this.listStatusItem);
-      
     }
+  }
+
+  initExpansionPanel(data: ActiveDataPage): void {
+    if(data.pickupDropoff === "pickup") {
+      this.titleExpansionPanel = "Pickup Data";
+      this.destinations = this.listOrderDetail.result.destinations[0];
+    }
+
+    if(data.pickupDropoff === "dropoff") {
+      this.titleExpansionPanel = "Dropoff Data";
+      this.destinations = this.listOrderDetail.result.destinations[1];
+    }
+
+    this.expandedPanel = true;
   }
 
   isActive(): boolean {

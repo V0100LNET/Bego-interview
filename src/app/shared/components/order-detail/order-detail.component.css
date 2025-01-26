@@ -88,8 +88,7 @@
     font-size: 14px;
     font-weight: bold;
     text-align: left; 
-    overflow-wrap: break-word; /* Permite que el texto largo pase a la siguiente línea */
-    /* flex: 1;  */
+    overflow-wrap: break-word;
 }
 
 .content-circle .status-order {
@@ -122,6 +121,11 @@
 
 .expansion-panel .mat-expansion-panel-header-title {
     color: white !important;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1044px) {

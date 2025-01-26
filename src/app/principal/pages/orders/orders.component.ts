@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTabChangeEvent } from '@angular/material/tabs';
-import { UpcomingOrders, Result, OrderDetail } from 'src/app/shared/interfaces/principal/orders.interface';
-import { GeneralService } from 'src/app/shared/services/general.service';
+import { UpcomingOrders, Result } from 'src/app/shared/interfaces/principal/orders.interface';
 import { OrderService } from 'src/app/shared/services/principal/order.service';
+import { GeneralService } from 'src/app/shared/services/general.service';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-orders',
@@ -22,7 +22,6 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getIncomingOrders();
-    // this.getDataOrderDetail();
   }
 
   get getOrdersUpcoming(): Result[] {    

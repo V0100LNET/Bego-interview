@@ -91,10 +91,10 @@
     color: white;
     background-color: var(--color-bg-card);
     font-size: 1.1rem;
-    border-radius: 20px;
     border: 1px solid #504f4f;
     padding-bottom: 10px;
     padding-top: 10px;
+    border-radius: 20px;
 }
 
 .card-orders .icon-transport {
@@ -146,7 +146,6 @@
 
 .card-orders .mat-card-content .info .info-title-pickup {
     margin-left: 56px;
-    /* transform: translateX(52px); */
     font-size: 0.8rem;
     color: var(--color-text-gray);
 
@@ -154,7 +153,6 @@
 
 .card-orders .mat-card-content .info .info-title-dropoff {
     margin-left: 56px;
-    /* transform: translateX(37px); */
     font-size: 0.8rem;
     color: var(--color-text-gray);
 }

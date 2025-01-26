@@ -6,7 +6,6 @@
         <h4 class="title">Cargo {{ getLabel }}</h4>
         <img title="Notificaciones" class="icon-notification" src="assets/icons/notification.svg" alt="image notification">
     </div>
-
     <mat-tab-group *ngIf="!isActive" mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="selectTab($event)" [selectedIndex]="indexTab">
         <mat-tab label="Upcoming">
             <app-input-search (eventInputSearch)="eventKeyUp($event)"></app-input-search>
@@ -24,6 +23,5 @@
             <p class="message-no-orders" *ngIf="getOrdersPast.length == 0">No orders to display</p>
         </mat-tab>
     </mat-tab-group>
-
     <app-order-detail></app-order-detail>
 </section>

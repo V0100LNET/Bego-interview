@@ -1,6 +1,6 @@
-<section>
-    <app-card-orders *ngIf="isActive()" [orderData]="getOrderDetail()"></app-card-orders>
-    <mat-card *ngIf="isActive()" class="card-orders">
+<section *ngIf="isActive()">
+    <app-card-orders  [orderData]="getOrderDetail()"></app-card-orders>
+    <mat-card class="card-orders">
         <mat-card-header>
             <div class="content-img">
                 <img src="assets/img/user.png" alt="image avatar">
@@ -33,10 +33,15 @@
             </button>
         </section>
     </mat-card>
-    <mat-expansion-panel *ngIf="isActive()" class="expansion-panel">
+    <mat-expansion-panel class="expansion-panel" [expanded]="expandedPanel">
         <mat-expansion-panel-header>
-            <mat-panel-title>Pickup Data</mat-panel-title>
+            <mat-panel-title>{{ titleExpansionPanel }}</mat-panel-title>
         </mat-expansion-panel-header>
-        <p>I'm visible because I am open</p>
+        <ul>
+            <li>{{ destinations.address }}</li>
+            <li>{{ getDate(destinations.startDate) | date:'dd/MM/yyyy' }}</li>
+            <li>{{ destinations.contact_info.telephone }}</li>
+            <li>{{ destinations.contact_info.email }}</li>
+        </ul>
     </mat-expansion-panel>
 </section>
