@@ -57,10 +57,18 @@
     background-color: var(--color-text-gray);
 }
 
-.btn-track-order {
-    color: var(--color-background);
-    font-weight: bold;
+.btn-track-order-bg-disabled {
+    color: white;
+    background-color: var(--color-bg-card);
+}
+
+.btn-track-order-bg-active {
+    color: black;
     background-color: var(--color-text-yellow);
+}
+
+.btn-track-order {
+    font-weight: bold;
     border-radius: 20px;
 }
  
@@ -152,9 +160,7 @@ li {
 
     .btn-track-order {
         width: 100%;
-        color: white;
         font-weight: bold;
-        background-color: var(--color-bg-card);
         border-radius: 20px;
         border: 1px solid #504f4f;
     }
